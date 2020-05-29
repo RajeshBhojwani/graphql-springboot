@@ -1,0 +1,24 @@
+type StudentClass {
+	_id: ID!,
+	grade: String,
+	sections: String
+	students: [Student]
+}
+type Student{
+        _id: ID!,
+        name: String,
+        dresscode: String
+		classid: String
+}
+
+type Query {
+	classes(count: Int):[StudentClass]
+	class(_id: ID):StudentClass
+	students(count: Int):[Student]
+	
+}
+
+type Mutation {
+	addClass(grade: String!, sections: String!):StudentClass
+	addStudent(name: String!, dresscode: String!, classid: String!):Student
+}
